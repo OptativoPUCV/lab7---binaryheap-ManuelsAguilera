@@ -78,9 +78,6 @@ void swap(heapElem *arr, int a, int b) // recibe la posicion de ambos
     void heap_pop(Heap * pq) {
       if (pq->size == 0)
         return;
-
-      heapElem root = pq->heapArray[0];
-      heapElem lastNode = pq->heapArray[pq->size - 1];
       swap(pq->heapArray, 0, pq->size - 1);
       heapify_d(pq, 0);
       pq->size--;
