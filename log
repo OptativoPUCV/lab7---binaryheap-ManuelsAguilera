@@ -240,3 +240,26 @@ Wed 10 May 2023 06:23:34 PM UTC:
  tests:  6|2
 total_score: 35/70
 88e9c5b
+Wed 10 May 2023 06:24:05 PM UTC: 
+ heap.c | 8 +++++---
+ 1 file changed, 5 insertions(+), 3 deletions(-)
+test.c: In function ‘heapify_d’:
+test.c:276:5: error: ‘main’ is normally a non-static function [-Werror=main]
+  276 | int main( int argc, char *argv[] ) {
+      |     ^~~~
+test.c:292:1: error: expected declaration or statement at end of input
+  292 | }
+      | ^
+test.c:12:6: error: unused variable ‘msg’ [-Werror=unused-variable]
+   12 | char msg[300];
+      |      ^~~
+At top level:
+test.c:276:5: error: ‘main’ defined but not used [-Werror=unused-function]
+  276 | int main( int argc, char *argv[] ) {
+      |     ^~~~
+test.c:6:8: error: ‘_strdup’ defined but not used [-Werror=unused-function]
+    6 | char * _strdup(const char * str) {
+      |        ^~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+bfa446a

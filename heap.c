@@ -50,55 +50,57 @@ void heapify_d(Heap *H,
       index = right;
       continue;
     } else
-      return vieww_array(H);
-  }
-}
+      return;
 
-void heapify_u(Heap *H, int index) //  compara con el padre hasta
-{                                  // que el heap sea valido
-  int parent = (index - 1) / 2;
-  if (H->heapArray[parent].priority >= H->heapArray[index].priority)
-    return;
-  else {
-    swap(H->heapArray, parent, index);
-    heapify_u(H, parent);
-  }
-}
-
-void *heap_top(Heap *pq) {
-  if (pq->size != 0)
-    return pq->heapArray[0].data;
-  return NULL;
-}
-
-void heap_push(Heap *pq, void *data, int priority) {
-  heapElem *array = pq->heapArray;
-  pq->size++;
-  if (pq->size == pq->capac) {
-    array = (heapElem *)realloc(array, sizeof(heapElem) * (1 + pq->capac * 2));
-    pq->capac *= 2;
-    pq->capac++;
+    vieww_array(H);
   }
 
-  heapElem new;
-  new.data = data;
-  new.priority = priority;
-  array[pq->size - 1] = new;
-  heapify_u(pq, pq->size - 1);
-}
+  void heapify_u(Heap * H, int index) //  compara con el padre hasta
+  {                                   // que el heap sea valido
+    int parent = (index - 1) / 2;
+    if (H->heapArray[parent].priority >= H->heapArray[index].priority)
+      return;
+    else {
+      swap(H->heapArray, parent, index);
+      heapify_u(H, parent);
+    }
+  }
 
-void heap_pop(Heap *pq) {
-  if (pq->size == 0)
-    return;
-  swap(pq->heapArray, 0, pq->size - 1);
-  heapify_d(pq, 0);
-  pq->size--;
-}
+  void *heap_top(Heap * pq) {
+    if (pq->size != 0)
+      return pq->heapArray[0].data;
+    return NULL;
+  }
 
-Heap *createHeap() {
-  Heap *new = malloc(sizeof(Heap));
-  new->capac = 3; // "Considere capac inicial 3"
-  new->size = 0;
-  new->heapArray = malloc(sizeof(heapElem) * new->capac);
-  return new;
-}
+  void heap_push(Heap * pq, void *data, int priority) {
+    heapElem *array = pq->heapArray;
+    pq->size++;
+    if (pq->size == pq->capac) {
+      array =
+          (heapElem *)realloc(array, sizeof(heapElem) * (1 + pq->capac * 2));
+      pq->capac *= 2;
+      pq->capac++;
+    }
+
+    heapElem new;
+    new.data = data;
+    new.priority = priority;
+    array[pq->size - 1] = new;
+    heapify_u(pq, pq->size - 1);
+  }
+
+  void heap_pop(Heap * pq) {
+    if (pq->size == 0)
+      return;
+    swap(pq->heapArray, 0, pq->size - 1);
+    heapify_d(pq, 0);
+    pq->size--;
+  }
+
+  Heap *createHeap() {
+    Heap *new = malloc(sizeof(Heap));
+    new->capac = 3; // "Considere capac inicial 3"
+    new->size = 0;
+    new->heapArray = malloc(sizeof(heapElem) * new->capac);
+    return new;
+  }
