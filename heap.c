@@ -16,6 +16,15 @@ typedef struct Heap {
   int capac;
 } Heap;
 
+void view_array(Heap *h) {
+  int i;
+  printf("\t[");
+  for (i = 0; i < h->size; i++) {
+    printf("%d ", h->heapArray[i].priority);
+  }
+  printf("]\n");
+}
+
 void swap(heapElem *arr, int a, int b) // recibe la posicion de ambos
 {
   heapElem aux = arr[a];
@@ -41,7 +50,7 @@ void heapify_d(Heap *H,
       index = right;
       continue;
     } else
-      return;
+      return view_array(H);
   }
 }
 
