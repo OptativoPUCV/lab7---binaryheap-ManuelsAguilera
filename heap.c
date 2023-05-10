@@ -47,7 +47,10 @@ void heap_push(Heap *pq, void *data, int priority) {
     pq->capac++;
   }
 
-  array[pq->size - 1].data = data;
+	heapElem new;
+	new.data=data;
+	new.priority=priority;
+  array[pq->size - 1] = new;
   heapify_u(pq, pq->size - 1);
 }
 
