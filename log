@@ -14,3 +14,14 @@ Wed 10 May 2023 04:19:29 PM UTC:
  tests:  2|2
 total_score: 20/70
 76156ad
+Wed 10 May 2023 05:51:21 PM UTC: 
+ heap.c | 31 +++++++++++++++++++++++++++++--
+ 1 file changed, 29 insertions(+), 2 deletions(-)
+In file included from test.c:4:
+heap.c: In function ‘heap_push’:
+heap.c:45:11: error: assignment to ‘heapElem *’ {aka ‘struct nodo *’} from incompatible pointer type ‘int *’ [-Werror=incompatible-pointer-types]
+   45 |     array = (int *)realloc(array, sizeof(int) * (1 + pq->capac * 2));
+      |           ^
+cc1: all warnings being treated as errors
+Compilation failed
+ba783f5

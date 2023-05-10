@@ -16,20 +16,47 @@ typedef struct Heap {
   int capac;
 } Heap;
 
-void *heap_top(Heap *pq) { 
-	if (pq->size != 0) return pq->heapArray[0].data;
-	return NULL;
-	
+void heapify_u(Heap *H, int index) //  compara con el padre hasta
+                                   // que el heap sea valido
+{
+  int parent = (index - 1) / 2;
+  heapElem aux;
+
+  if (H->heapArray[parent].priority >= H->heapArray[index].priority)
+    return;
+  else {
+    aux = H->heapArray[parent];
+    H->heapArray[parent] = H->heapArray[index];
+    H->heapArray[index] = aux;
+    heapify_u(H, parent);
+  }
 }
 
-void heap_push(Heap *pq, void *data, int priority) {}
+void *heap_top(Heap *pq) {
+  if (pq->size != 0)
+    return pq->heapArray[0].data;
+  return NULL;
+}
+
+void heap_push(Heap *pq, void *data, int priority) {
+  heapElem *array = pq->heapArray;
+  pq->size++;
+  if (pq->size == pq->capac) {
+    array = (int *)realloc(array, sizeof(int) * (1 + pq->capac * 2));
+    pq->capac *= 2;
+    pq->capac++;
+  }
+
+  array[pq->size - 1].data = data;
+  heapify_u(pq, pq->size - 1);
+}
 
 void heap_pop(Heap *pq) {}
 
-Heap *createHeap() { 
-	Heap *new = malloc(sizeof(Heap));
-	new->capac = 3; // "Considere capac inicial 3"
-	new->size=0;
-	new->heapArray = malloc(sizeof(heapElem) * new->capac);
-	return new; 
+Heap *createHeap() {
+  Heap *new = malloc(sizeof(Heap));
+  new->capac = 3; // "Considere capac inicial 3"
+  new->size = 0;
+  new->heapArray = malloc(sizeof(heapElem) * new->capac);
+  return new;
 }
