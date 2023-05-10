@@ -42,15 +42,16 @@ void swap(heapElem *arr, int a, int b) // recibe la posicion de ambos
   }
 
   void heapify_u(Heap * H, int index) //  compara con el padre hasta
-                                      // que el heap sea valido
-  {
+	{									// que el heap sea valido
     int parent = (index - 1) / 2;
     if (H->heapArray[parent].priority >= H->heapArray[index].priority)
       return;
     else {
       swap(H->heapArray, parent, index);
       heapify_u(H, parent);
-    }
+    
+	}
+	}
 
     void *heap_top(Heap * pq) {
       if (pq->size != 0)
