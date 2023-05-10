@@ -37,3 +37,46 @@ Wed 10 May 2023 05:54:07 PM UTC:
  tests:  6|2
 total_score: 35/70
 dd03725
+Wed 10 May 2023 06:10:06 PM UTC: 
+ heap.c | 49 +++++++++++++++++++++++++++++++++++++++++--------
+ 1 file changed, 41 insertions(+), 8 deletions(-)
+In file included from test.c:4:
+heap.c: In function ‘heapify_d’:
+heap.c:38:28: error: ‘H->heapArray’ is a pointer; did you mean to use ‘->’?
+   38 |     } else if (H->heapArray.priority[right] > H->heapArray[index].priority) {
+      |                            ^
+      |                            ->
+heap.c:29:22: error: unused variable ‘aux’ [-Werror=unused-variable]
+   29 |     int left, right, aux;
+      |                      ^~~
+heap.c: In function ‘heap_pop’:
+heap.c:86:14: error: unused variable ‘lastNode’ [-Werror=unused-variable]
+   86 |     heapElem lastNode = pq->heapArray[pq->size - 1];
+      |              ^~~~~~~~
+heap.c:85:14: error: unused variable ‘root’ [-Werror=unused-variable]
+   85 |     heapElem root = pq->heapArray[0];
+      |              ^~~~
+test.c: In function ‘heapify_u’:
+test.c:276:5: error: ‘main’ is normally a non-static function [-Werror=main]
+  276 | int main( int argc, char *argv[] ) {
+      |     ^~~~
+test.c:292:1: error: expected declaration or statement at end of input
+  292 | }
+      | ^
+test.c:12:6: error: unused variable ‘msg’ [-Werror=unused-variable]
+   12 | char msg[300];
+      |      ^~~
+test.c: In function ‘swap’:
+test.c:292:1: error: expected declaration or statement at end of input
+  292 | }
+      | ^
+At top level:
+test.c:276:5: error: ‘main’ defined but not used [-Werror=unused-function]
+  276 | int main( int argc, char *argv[] ) {
+      |     ^~~~
+test.c:6:8: error: ‘_strdup’ defined but not used [-Werror=unused-function]
+    6 | char * _strdup(const char * str) {
+      |        ^~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+63133ef
