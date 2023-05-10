@@ -21,7 +21,7 @@ void swap(heapElem *arr, int a, int b) // recibe la posicion de ambos
   heapElem aux = arr[a];
   arr[a] = arr[b];
   arr[b] = aux;
-
+}
   void heapify_d(Heap * H,
                  int index) // compara con hijos hasta // que el heap sea valido
   {
