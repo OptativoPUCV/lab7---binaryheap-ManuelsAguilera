@@ -37,11 +37,12 @@ void heapify_d(Heap *H,
   int left, right;
   left = (2 * index) + 1;
   right = (2 * index) + 2;
+  vieww_array(H);
+
   while (1) {
     if (left < H->size && right < H->size)
       return;
 
-    vieww_array(H);
     if (H->heapArray[left].priority > H->heapArray[index].priority) {
       swap(H->heapArray, left, index);
       index = left;
