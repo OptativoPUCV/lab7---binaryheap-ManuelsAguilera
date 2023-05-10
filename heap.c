@@ -42,7 +42,7 @@ void heap_push(Heap *pq, void *data, int priority) {
   heapElem *array = pq->heapArray;
   pq->size++;
   if (pq->size == pq->capac) {
-    array = (int *)realloc(array, sizeof(int) * (1 + pq->capac * 2));
+    array = (heapElem *)realloc(array, sizeof(heapElem) * (1 + pq->capac * 2));
     pq->capac *= 2;
     pq->capac++;
   }
