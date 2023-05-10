@@ -234,3 +234,9 @@ heap.c:19:6: note: previous definition of ‘view_array’ with type ‘void(Hea
       |      ^~~~~~~~~~
 Compilation failed
 5ee11a7
+Wed 10 May 2023 06:23:34 PM UTC: 
+ heap.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+ tests:  6|2
+total_score: 35/70
+88e9c5b

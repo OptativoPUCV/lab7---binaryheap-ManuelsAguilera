@@ -16,7 +16,7 @@ typedef struct Heap {
   int capac;
 } Heap;
 
-void view_array(Heap *h) {
+void vieww_array(Heap *h) {
   int i;
   printf("\t[");
   for (i = 0; i < h->size; i++) {
@@ -50,7 +50,7 @@ void heapify_d(Heap *H,
       index = right;
       continue;
     } else
-      return view_array(H);
+      return vieww_array(H);
   }
 }
 
