@@ -41,6 +41,7 @@ void heapify_d(Heap *H,
     if (left < H->size && right < H->size)
       return;
 
+    vieww_array(H);
     if (H->heapArray[left].priority > H->heapArray[index].priority) {
       swap(H->heapArray, left, index);
       index = left;
@@ -51,7 +52,6 @@ void heapify_d(Heap *H,
       continue;
     } else
       return;
-	vieww_array(H);
   }
 }
 
