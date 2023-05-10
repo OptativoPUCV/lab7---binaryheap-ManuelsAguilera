@@ -22,72 +22,74 @@ void swap(heapElem *arr, int a, int b) // recibe la posicion de ambos
   arr[a] = arr[b];
   arr[b] = aux;
 }
-  void heapify_d(Heap * H,
-                 int index) // compara con hijos hasta // que el heap sea valido
-  {
-    int left, right;
-    left = (2 * index) + 1;
-    right = (2 * index) + 2;
+void heapify_d(Heap *H,
+               int index) // compara con hijos hasta // que el heap sea valido
+{
+  int left, right;
+  left = (2 * index) + 1;
+  right = (2 * index) + 2;
+  while (1) {
     if (left < H->size && right < H->size)
       return;
 
     if (H->heapArray[left].priority > H->heapArray[index].priority) {
       swap(H->heapArray, left, index);
-      heapify_d(H, left);
-    } else if (H->heapArray[right].priority > H -> heapArray[index].priority) {
+      index = left;
+      continue;
+    } else if (H->heapArray[right].priority > H->heapArray[index].priority) {
       swap(H->heapArray, right, index);
-      heapify_d(H, right);
+      index = right;
+      continue;
     } else
       return;
   }
+}
 
-  void heapify_u(Heap * H, int index) //  compara con el padre hasta
-	{									// que el heap sea valido
-    int parent = (index - 1) / 2;
-    if (H->heapArray[parent].priority >= H->heapArray[index].priority)
-      return;
-    else {
-      swap(H->heapArray, parent, index);
-      heapify_u(H, parent);
-    
-	}
-	}
+void heapify_u(Heap *H, int index) //  compara con el padre hasta
+{                                  // que el heap sea valido
+  int parent = (index - 1) / 2;
+  if (H->heapArray[parent].priority >= H->heapArray[index].priority)
+    return;
+  else {
+    swap(H->heapArray, parent, index);
+    heapify_u(H, parent);
+  }
+}
 
-    void *heap_top(Heap * pq) {
-      if (pq->size != 0)
-        return pq->heapArray[0].data;
-      return NULL;
-    }
+void *heap_top(Heap *pq) {
+  if (pq->size != 0)
+    return pq->heapArray[0].data;
+  return NULL;
+}
 
-    void heap_push(Heap * pq, void *data, int priority) {
-      heapElem *array = pq->heapArray;
-      pq->size++;
-      if (pq->size == pq->capac) {
-        array =
-            (heapElem *)realloc(array, sizeof(heapElem) * (1 + pq->capac * 2));
-        pq->capac *= 2;
-        pq->capac++;
-      }
+void heap_push(Heap *pq, void *data, int priority) {
+  heapElem *array = pq->heapArray;
+  pq->size++;
+  if (pq->size == pq->capac) {
+    array = (heapElem *)realloc(array, sizeof(heapElem) * (1 + pq->capac * 2));
+    pq->capac *= 2;
+    pq->capac++;
+  }
 
-      heapElem new;
-      new.data = data;
-      new.priority = priority;
-      array[pq->size - 1] = new;
-      heapify_u(pq, pq->size - 1);
-    }
+  heapElem new;
+  new.data = data;
+  new.priority = priority;
+  array[pq->size - 1] = new;
+  heapify_u(pq, pq->size - 1);
+}
 
-    void heap_pop(Heap * pq) {
-      if (pq->size == 0)
-        return;
-      swap(pq->heapArray, 0, pq->size);
-      heapify_d(pq, 0);
-      pq->size--;
-    }
+void heap_pop(Heap *pq) {
+  if (pq->size == 0)
+    return;
+  swap(pq->heapArray, 0, pq->size - 1);
+  heapify_d(pq, 0);
+  pq->size--;
+}
 
-    Heap *createHeap() {
-      Heap *new = malloc(sizeof(Heap));
-      new->capac = 3; // "Considere capac inicial 3"
-      new->size = 0;
-      new->heapArray = malloc(sizeof(heapElem) * new->capac);
-      return new;
-    }
+Heap *createHeap() {
+  Heap *new = malloc(sizeof(Heap));
+  new->capac = 3; // "Considere capac inicial 3"
+  new->size = 0;
+  new->heapArray = malloc(sizeof(heapElem) * new->capac);
+  return new;
+}
