@@ -79,7 +79,7 @@ void swap(heapElem *arr, int a, int b) // recibe la posicion de ambos
     void heap_pop(Heap * pq) {
       if (pq->size == 0)
         return;
-      swap(pq->heapArray, 0, pq->size - 1);
+      swap(pq->heapArray, 0, pq->size);
       heapify_d(pq, 0);
       pq->size--;
     }
