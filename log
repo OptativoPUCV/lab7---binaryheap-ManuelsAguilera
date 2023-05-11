@@ -673,3 +673,21 @@ Thu 11 May 2023 05:29:31 PM UTC:
  tests:  6|2
 total_score: 40/70
 df6740d
+Thu 11 May 2023 05:30:01 PM UTC: 
+ heap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+In file included from test.c:4:
+heap.c: In function ‘heapify_d’:
+heap.c:43:23: error: format ‘%d’ expects argument of type ‘int’, but argument 2 has type ‘heapElem’ {aka ‘struct nodo’} [-Werror=format=]
+   43 |         printf("left %d right %d\n",H->heapArray[left],H->heapArray[right]);
+      |                      ~^             ~~~~~~~~~~~~~~~~~~
+      |                       |                         |
+      |                       int                       heapElem {aka struct nodo}
+heap.c:43:32: error: format ‘%d’ expects argument of type ‘int’, but argument 3 has type ‘heapElem’ {aka ‘struct nodo’} [-Werror=format=]
+   43 |         printf("left %d right %d\n",H->heapArray[left],H->heapArray[right]);
+      |                               ~^                       ~~~~~~~~~~~~~~~~~~~
+      |                                |                                   |
+      |                                int                                 heapElem {aka struct nodo}
+cc1: all warnings being treated as errors
+Compilation failed
+42724ed
