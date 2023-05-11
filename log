@@ -471,3 +471,15 @@ Thu 11 May 2023 04:34:04 PM UTC:
  tests:  6|2
 total_score: 35/70
 4363da3
+Thu 11 May 2023 04:34:55 PM UTC: 
+ heap.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+In file included from test.c:4:
+heap.c: In function ‘heap_push’:
+heap.c:86:37: error: ‘p1’ undeclared (first use in this function); did you mean ‘pq’?
+   86 |         printf("bf prior is: %d \n",p1->size-1);
+      |                                     ^~
+      |                                     pq
+heap.c:86:37: note: each undeclared identifier is reported only once for each function it appears in
+Compilation failed
+575c94c
