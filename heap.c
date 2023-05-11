@@ -55,7 +55,7 @@ void heapify_d(Heap *H,
 void heapify_u(Heap *H, int index) //  compara con el padre hasta
 {                     
 	// que el heap sea valido
-	vieww_array(H);
+	
   int parent = (index - 1) / 2;
   if (H->heapArray[parent].priority >= H->heapArray[index].priority)
     return;
@@ -83,9 +83,10 @@ void heap_push(Heap *pq, void *data, int priority) {
   heapElem new;
   new.data = data;
   new.priority = priority;
-	printf("bf prior is: %d \n",array[pq->size-1].priority);
+	
   array[pq->size - 1] = new;
-	printf("priority is: %d \n",array[pq->size-1].priority);
+
+	vieww_array(array);
   heapify_u(pq, pq->size - 1);
 }
 

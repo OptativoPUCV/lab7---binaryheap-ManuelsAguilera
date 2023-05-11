@@ -533,3 +533,19 @@ Thu 11 May 2023 04:38:31 PM UTC:
  tests:  6|2
 total_score: 35/70
 a3344e0
+Thu 11 May 2023 04:40:01 PM UTC: 
+ heap.c | 7 ++++---
+ 1 file changed, 4 insertions(+), 3 deletions(-)
+In file included from test.c:4:
+heap.c: In function ‘heap_push’:
+heap.c:89:21: error: passing argument 1 of ‘vieww_array’ from incompatible pointer type [-Werror=incompatible-pointer-types]
+   89 |         vieww_array(array);
+      |                     ^~~~~
+      |                     |
+      |                     heapElem * {aka struct nodo *}
+heap.c:19:24: note: expected ‘Heap *’ {aka ‘struct Heap *’} but argument is of type ‘heapElem *’ {aka ‘struct nodo *’}
+   19 | void vieww_array(Heap *h) {
+      |                  ~~~~~~^
+cc1: all warnings being treated as errors
+Compilation failed
+7a38ded
