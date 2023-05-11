@@ -40,9 +40,9 @@ void heapify_d(Heap *H,
 	if (left > H->size || right > H->size) return;
 	int bigger =(left>right)?left:right; //guarda cual es el mayor
 	
-	
+	printf("left %d right %d\n",left,right);
 
-  if (H->heapArray[index].priority < H->heapArray[bigger].priority-1)
+  if (H->heapArray[index].priority < H->heapArray[bigger].priority)
   {
 	  swap(H->heapArray,bigger,index);
 	  heapify_d(H,bigger);	
