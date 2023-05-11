@@ -73,7 +73,7 @@ void *heap_top(Heap *pq) {
 
 void heap_push(Heap *pq, void *data, int priority) {
   heapElem *array = pq->heapArray;
-  pq->size++;
+  
   if (pq->size == pq->capac) {
 
 	  pq->capac *= 2;
@@ -91,14 +91,16 @@ void heap_push(Heap *pq, void *data, int priority) {
 
 	
   heapify_u(pq, pq->size - 1);
+	  pq->size++;
 }
 
 void heap_pop(Heap *pq) {
   if (pq->size == 0)
     return;
   swap(pq->heapArray, 0, pq->size - 1);
+	pq->size--;
   heapify_d(pq, 0);
-  pq->size--;
+  
 }
 
 Heap *createHeap() {
