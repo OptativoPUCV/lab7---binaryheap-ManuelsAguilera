@@ -38,7 +38,7 @@ void heapify_d(Heap *H,
 	left = (2 * index) + 1;
 	right = (2 * index) + 2;
 	if (left > H->size || right > H->size) return;
-	int bigger =(left>right)?left:right; //guarda cual es el mayor
+	int bigger =(H->heapArray[left].priority>H->heapArray[right].priority)?left:right; //guarda cual es el mayor
 	vieww_array(H);
 	printf("left %d right %d\n",H->heapArray[left].priority,H->heapArray[right].priority);
 	printf("bigger %d\n",bigger);
