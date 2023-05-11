@@ -447,3 +447,9 @@ heap.c:58:9: error: implicit declaration of function ‘vieww_heap’ [-Werror=i
 cc1: all warnings being treated as errors
 Compilation failed
 2661072
+Thu 11 May 2023 04:30:19 PM UTC: 
+ heap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+ tests:  6|2
+total_score: 35/70
+d61d7cb
