@@ -34,6 +34,9 @@ void swap(heapElem *arr, int a, int b) // recibe la posicion de ambos
 void heapify_d(Heap *H,
                int index) // compara con hijos hasta // que el heap sea valido
 {
+
+	if (H)
+	
   /*int left, right;
   left = (2 * index) + 1;
   right = (2 * index) + 2;
@@ -53,7 +56,7 @@ void heapify_d(Heap *H,
       continue;
     } else
       return;
-  }*/
+  }*/	
 }
 
 void heapify_u(Heap *H, int index) //  compara con el padre hasta

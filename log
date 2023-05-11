@@ -287,3 +287,13 @@ Thu 11 May 2023 03:11:17 PM UTC:
  tests:  6|2
 total_score: 35/70
 4ed755a
+Thu 11 May 2023 03:28:31 PM UTC: 
+ heap.c | 3 +++
+ 1 file changed, 3 insertions(+)
+In file included from test.c:4:
+heap.c: In function ‘heapify_d’:
+heap.c:60:1: error: expected expression before ‘}’ token
+   60 | }
+      | ^
+Compilation failed
+df5ef95
