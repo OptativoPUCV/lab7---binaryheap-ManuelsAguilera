@@ -436,3 +436,14 @@ heap.c:60:20: note: each undeclared identifier is reported only once for each fu
 cc1: all warnings being treated as errors
 Compilation failed
 4fb5871
+Thu 11 May 2023 04:29:57 PM UTC: 
+ heap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+In file included from test.c:4:
+heap.c: In function ‘heapify_u’:
+heap.c:58:9: error: implicit declaration of function ‘vieww_heap’ [-Werror=implicit-function-declaration]
+   58 |         vieww_heap(H);
+      |         ^~~~~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+2661072

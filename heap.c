@@ -55,7 +55,7 @@ void heapify_d(Heap *H,
 void heapify_u(Heap *H, int index) //  compara con el padre hasta
 {                     
 	// que el heap sea valido
-	vieww_heap(H)
+	vieww_heap(H);
   int parent = (index - 1) / 2;
   if (H->heapArray[parent].priority >= H->heapArray[index].priority)
     return;
