@@ -415,3 +415,24 @@ Thu 11 May 2023 04:22:33 PM UTC:
  tests:  6|2
 total_score: 35/70
 3ad2415
+Thu 11 May 2023 04:29:51 PM UTC: 
+ heap.c | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+In file included from test.c:4:
+heap.c: In function ‘heapify_u’:
+heap.c:58:9: error: implicit declaration of function ‘vieww_heap’ [-Werror=implicit-function-declaration]
+   58 |         vieww_heap(H)
+      |         ^~~~~~~~~~
+heap.c:58:22: error: expected ‘;’ before ‘int’
+   58 |         vieww_heap(H)
+      |                      ^
+      |                      ;
+   59 |   int parent = (index - 1) / 2;
+      |   ~~~                 
+heap.c:60:20: error: ‘parent’ undeclared (first use in this function)
+   60 |   if (H->heapArray[parent].priority >= H->heapArray[index].priority)
+      |                    ^~~~~~
+heap.c:60:20: note: each undeclared identifier is reported only once for each function it appears in
+cc1: all warnings being treated as errors
+Compilation failed
+4fb5871
