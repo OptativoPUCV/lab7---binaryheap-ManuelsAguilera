@@ -297,3 +297,35 @@ heap.c:60:1: error: expected expression before ‘}’ token
       | ^
 Compilation failed
 df5ef95
+Thu 11 May 2023 04:17:51 PM UTC: 
+ heap.c | 31 ++++++++++++-------------------
+ 1 file changed, 12 insertions(+), 19 deletions(-)
+In file included from test.c:4:
+heap.c: In function ‘heapify_d’:
+heap.c:43:16: error: passing argument 1 of ‘swap’ from incompatible pointer type [-Werror=incompatible-pointer-types]
+   43 |           swap(H,left,index);
+      |                ^
+      |                |
+      |                Heap * {aka struct Heap *}
+heap.c:28:21: note: expected ‘heapElem *’ {aka ‘struct nodo *’} but argument is of type ‘Heap *’ {aka ‘struct Heap *’}
+   28 | void swap(heapElem *arr, int a, int b) // recibe la posicion de ambos
+      |           ~~~~~~~~~~^~~
+heap.c:44:11: error: implicit declaration of function ‘heapify’; did you mean ‘heapify_d’? [-Werror=implicit-function-declaration]
+   44 |           heapify(H,left);
+      |           ^~~~~~~
+      |           heapify_d
+heap.c:46:52: error: ‘Heap’ {aka ‘struct Heap’} has no member named ‘heapArrat’; did you mean ‘heapArray’?
+   46 |         else if (H->heapArray[index].priority < H->heapArrat[right].priority)
+      |                                                    ^~~~~~~~~
+      |                                                    heapArray
+heap.c:48:22: error: passing argument 1 of ‘swap’ from incompatible pointer type [-Werror=incompatible-pointer-types]
+   48 |                 swap(H,left,index);
+      |                      ^
+      |                      |
+      |                      Heap * {aka struct Heap *}
+heap.c:28:21: note: expected ‘heapElem *’ {aka ‘struct nodo *’} but argument is of type ‘Heap *’ {aka ‘struct Heap *’}
+   28 | void swap(heapElem *arr, int a, int b) // recibe la posicion de ambos
+      |           ~~~~~~~~~~^~~
+cc1: all warnings being treated as errors
+Compilation failed
+22eef73
