@@ -73,7 +73,7 @@ void *heap_top(Heap *pq) {
 
 void heap_push(Heap *pq, void *data, int priority) {
   heapElem *array = pq->heapArray;
-
+  pq->size++;
   if (pq->size+1 == pq->capac) {
 	  
     array = (heapElem *)realloc(array, 1 + (sizeof(heapElem) * pq->capac * 2));
@@ -81,7 +81,6 @@ void heap_push(Heap *pq, void *data, int priority) {
     pq->capac++;
 	  vieww_array(pq);
   }
-	  pq->size++;
 	
   heapElem new;
   new.data = data;
