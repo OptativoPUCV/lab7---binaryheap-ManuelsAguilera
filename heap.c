@@ -34,19 +34,19 @@ void swap(heapElem *arr, int a, int b) // recibe la posicion de ambos
 void heapify_d(Heap *H,
                int index) // compara con hijos hasta // que el heap sea valido
 {
-  int left, right;
-  left = (2 * index) + 1;
-  right = (2 * index) + 2;
+	int left, right;
+	left = (2 * index) + 1;
+	right = (2 * index) + 2;
 	if (left > H->size || right > H->size) return;
 	int bigger =(left>right)?left:right; //guarda cual es el mayor
 	vieww_array(H);
 	printf("left %d right %d\n",H->heapArray[left].priority,H->heapArray[right].priority);
-
-  if (H->heapArray[index].priority < H->heapArray[bigger].priority)
-  {
+	printf("bigger %d\n",bigger);
+	if (H->heapArray[index].priority < H->heapArray[bigger].priority)
+	{
 	  swap(H->heapArray,bigger,index);
 	  heapify_d(H,bigger);	
-  }
+	}
 	else 
 		return;
 }
