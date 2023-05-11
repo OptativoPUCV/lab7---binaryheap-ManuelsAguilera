@@ -86,9 +86,6 @@ void heap_push(Heap *pq, void *data, int priority) {
 		vieww_array(pq);
   	}
 	
-	heapElem new;
-	
-	
 	array[pq->size - 1].data = data;
 	array[pq->size - 1].priority = priority;
 	
