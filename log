@@ -489,3 +489,21 @@ Thu 11 May 2023 04:35:07 PM UTC:
  tests:  6|2
 total_score: 35/70
 6f17910
+Thu 11 May 2023 04:37:48 PM UTC: 
+ heap.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+In file included from test.c:4:
+heap.c: In function ‘heap_push’:
+heap.c:86:31: error: format ‘%d’ expects argument of type ‘int’, but argument 2 has type ‘heapElem’ {aka ‘struct nodo’} [-Werror=format=]
+   86 |         printf("bf prior is: %d \n",array[pq->size-1]);
+      |                              ~^     ~~~~~~~~~~~~~~~~~
+      |                               |          |
+      |                               int        heapElem {aka struct nodo}
+heap.c:88:31: error: format ‘%d’ expects argument of type ‘int’, but argument 2 has type ‘heapElem’ {aka ‘struct nodo’} [-Werror=format=]
+   88 |         printf("priority is: %d \n",array[pq->size-1]);
+      |                              ~^     ~~~~~~~~~~~~~~~~~
+      |                               |          |
+      |                               int        heapElem {aka struct nodo}
+cc1: all warnings being treated as errors
+Compilation failed
+fa2d685
