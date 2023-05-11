@@ -507,3 +507,23 @@ heap.c:88:31: error: format ‘%d’ expects argument of type ‘int’, but arg
 cc1: all warnings being treated as errors
 Compilation failed
 fa2d685
+Thu 11 May 2023 04:38:05 PM UTC: 
+ heap.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+In file included from test.c:4:
+heap.c: In function ‘heap_push’:
+heap.c:86:31: error: format ‘%d’ expects argument of type ‘int’, but argument 2 has type ‘void *’ [-Werror=format=]
+   86 |         printf("bf prior is: %d \n",array[pq->size-1].data);
+      |                              ~^     ~~~~~~~~~~~~~~~~~~~~~~
+      |                               |                      |
+      |                               int                    void *
+      |                              %p
+heap.c:88:31: error: format ‘%d’ expects argument of type ‘int’, but argument 2 has type ‘void *’ [-Werror=format=]
+   88 |         printf("priority is: %d \n",array[pq->size-1].data);
+      |                              ~^     ~~~~~~~~~~~~~~~~~~~~~~
+      |                               |                      |
+      |                               int                    void *
+      |                              %p
+cc1: all warnings being treated as errors
+Compilation failed
+f3bf4c1

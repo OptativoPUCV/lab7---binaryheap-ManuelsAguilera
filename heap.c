@@ -83,9 +83,9 @@ void heap_push(Heap *pq, void *data, int priority) {
   heapElem new;
   new.data = data;
   new.priority = priority;
-	printf("bf prior is: %d \n",array[pq->size-1]);
+	printf("bf prior is: %d \n",array[pq->size-1].data);
   array[pq->size - 1] = new;
-	printf("priority is: %d \n",array[pq->size-1]);
+	printf("priority is: %d \n",array[pq->size-1].data);
   heapify_u(pq, pq->size - 1);
 }
 
