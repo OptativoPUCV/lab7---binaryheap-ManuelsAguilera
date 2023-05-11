@@ -37,19 +37,15 @@ void heapify_d(Heap *H,
   int left, right;
   left = (2 * index) + 1;
   right = (2 * index) + 2;
-
+	int* bigger =(left>right)?&left:&right; //guarda cual es el mayor
+	
 	if (left > H->size || right > H->size) return;
 
-  if (H->heapArray[index].priority < H->heapArray[left].priority)
+  if (H->heapArray[index].priority < H->heapArray[*bigger].priority)
   {
-	  swap(H->heapArray,left,index);
-	  heapify_d(H,left);	
+	  swap(H->heapArray,*bigger,index);
+	  heapify_d(H,*bigger);	
   }
-	else if (H->heapArray[index].priority < H->heapArray[right].priority)
-	{
-		swap(H->heapArray,left,index);
-		heapify_d(H,right);
-	}
 	else 
 		return;
 }
