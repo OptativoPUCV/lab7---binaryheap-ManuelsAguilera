@@ -377,3 +377,18 @@ heap.c:48:25: error: ‘Heap’ {aka ‘struct Heap’} has no member named ‘H
 cc1: all warnings being treated as errors
 Compilation failed
 af4a7e0
+Thu 11 May 2023 04:19:14 PM UTC: 
+ heap.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+In file included from test.c:4:
+heap.c: In function ‘heapify_d’:
+heap.c:46:52: error: ‘Heap’ {aka ‘struct Heap’} has no member named ‘heapArrat’; did you mean ‘heapArray’?
+   46 |         else if (H->heapArray[index].priority < H->heapArrat[right].priority)
+      |                                                    ^~~~~~~~~
+      |                                                    heapArray
+heap.c:48:25: error: ‘Heap’ {aka ‘struct Heap’} has no member named ‘HeapArray’; did you mean ‘heapArray’?
+   48 |                 swap(H->HeapArray,left,index);
+      |                         ^~~~~~~~~
+      |                         heapArray
+Compilation failed
+9455730

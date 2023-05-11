@@ -41,12 +41,12 @@ void heapify_d(Heap *H,
   if (H->heapArray[index].priority < H->heapArray[left].priority)
   {
 	  swap(H->heapArray,left,index);
-	  heapify(H,left);	
+	  heapify_d(H,left);	
   }
 	else if (H->heapArray[index].priority < H->heapArrat[right].priority)
 	{
 		swap(H->HeapArray,left,index);
-		heapify(H,right);
+		heapify_d(H,right);
 	}
 	else 
 		return;
