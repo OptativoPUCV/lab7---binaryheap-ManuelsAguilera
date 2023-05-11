@@ -721,3 +721,19 @@ Thu 11 May 2023 05:49:08 PM UTC:
  tests:  6|2
 total_score: 45/70
 8311c19
+Thu 11 May 2023 05:51:29 PM UTC: 
+ heap.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+In file included from test.c:4:
+heap.c: In function ‘heapify_d’:
+heap.c:42:13: error: redefinition of ‘bigger’
+   42 |         int bigger = (right > H->size-1)
+      |             ^~~~~~
+heap.c:41:13: note: previous definition of ‘bigger’ with type ‘int’
+   41 |         int bigger =(H->heapArray[left].priority>H->heapArray[right].priority)?left:right; //guarda cual es el mayor
+      |             ^~~~~~
+heap.c:43:9: error: expected ‘,’ or ‘;’ before ‘vieww_array’
+   43 |         vieww_array(H);
+      |         ^~~~~~~~~~~
+Compilation failed
+64c640b
