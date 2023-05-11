@@ -620,3 +620,14 @@ Thu 11 May 2023 05:03:33 PM UTC:
  tests:  2|2
 total_score: 20/70
 c28a790
+Thu 11 May 2023 05:05:44 PM UTC: 
+ heap.c | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
+In file included from test.c:4:
+heap.c: In function ‘heapify_d’:
+heap.c:41:12: error: suggest explicit braces to avoid ambiguous ‘else’ [-Werror=dangling-else]
+   41 |         if (left > H->size || right > H->size)
+      |            ^
+cc1: all warnings being treated as errors
+Compilation failed
+1fcfee6

@@ -38,6 +38,8 @@ void heapify_d(Heap *H,
   left = (2 * index) + 1;
   right = (2 * index) + 2;
 
+	if (left > H->size || right > H->size)
+
   if (H->heapArray[index].priority > H->heapArray[left].priority)
   {
 	  swap(H->heapArray,left,index);
@@ -73,7 +75,7 @@ void *heap_top(Heap *pq) {
 
 void heap_push(Heap *pq, void *data, int priority) {
   heapElem *array = pq->heapArray;
-  
+  pq->size++;
   if (pq->size == pq->capac) {
 
 	  pq->capac *= 2;
@@ -91,7 +93,6 @@ void heap_push(Heap *pq, void *data, int priority) {
 
 	
   heapify_u(pq, pq->size - 1);
-	  pq->size++;
 }
 
 void heap_pop(Heap *pq) {
