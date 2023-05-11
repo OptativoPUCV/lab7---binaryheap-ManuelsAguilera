@@ -75,7 +75,8 @@ void heap_push(Heap *pq, void *data, int priority) {
   heapElem *array = pq->heapArray;
   pq->size++;
   if (pq->size == pq->capac) {
-    array = (heapElem *)realloc(array, sizeof(heapElem) * (1 + pq->capac * 2));
+	  vieww_array(pq);
+    array = (heapElem *)realloc(array, 1 + (sizeof(heapElem) * pq->capac * 2));
     pq->capac *= 2;
     pq->capac++;
   }
@@ -86,7 +87,7 @@ void heap_push(Heap *pq, void *data, int priority) {
 	
   array[pq->size - 1] = new;
 
-	vieww_array(pq);
+	
   heapify_u(pq, pq->size - 1);
 }
 
