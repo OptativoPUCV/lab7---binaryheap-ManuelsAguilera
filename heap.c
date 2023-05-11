@@ -77,9 +77,9 @@ void heap_push(Heap *pq, void *data, int priority) {
   if (pq->size == pq->capac) {
     array = (heapElem *)realloc(array, sizeof(heapElem) * (1 + pq->capac * 2));
     pq->capac *= 2;
-    
+    pq->capac++;
   }
-
+	printf("priority is: %d \n",priority);
   heapElem new;
   new.data = data;
   new.priority = priority;
