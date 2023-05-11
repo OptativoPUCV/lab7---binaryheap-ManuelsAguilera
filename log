@@ -749,3 +749,23 @@ Thu 11 May 2023 06:01:51 PM UTC:
  tests:  7|1
 total_score: 60/70
 e3d560b
+Thu 11 May 2023 06:11:21 PM UTC: 
+ heap.c | 13 ++++++-------
+ 1 file changed, 6 insertions(+), 7 deletions(-)
+In file included from test.c:4:
+heap.c: In function ‘heap_pop’:
+heap.c:106:38: error: expected ‘)’ before ‘pq’
+  106 |   swap(pq->heapArray, 0, pq->size - 1
+      |       ~                              ^
+      |                                      )
+  107 |           pq->heapArray[pq->size-1].priority = -1; //para que no se considere
+      |           ~~                          
+heap.c:109:20: error: expected ‘;’ before ‘}’ token
+  109 |   heapify_d(pq, 0);
+      |                    ^
+      |                    ;
+  110 | 
+  111 | }
+      | ~                   
+Compilation failed
+9a404dd

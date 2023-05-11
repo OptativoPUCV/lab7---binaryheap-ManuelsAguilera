@@ -37,18 +37,16 @@ void heapify_d(Heap *H,
 	int left, right,bigger;
 	left = (2 * index) + 1;
 	right = (2 * index) + 2;
-	right = (right == H->size)?0:right;
+	//comprobar que no este comparando fuera del heap
+	//si es asi, entonces cambiar a -1 para que nunca se considere
+	//right = (right == H->size)?index:right;
 	if (left > H->size-1) return;
 
+	//comprobar el mayor para comprararlo al current
 	if (H->heapArray[left].priority >= H->heapArray[right].priority)
 		bigger = left;
 	else bigger = right;
 
-	
-	
-	vieww_array(H);
-	printf("left %d right %d\n",H->heapArray[left].priority,H->heapArray[right].priority);
-	printf("bigger %d\n",bigger);
 	if (H->heapArray[index].priority < H->heapArray[bigger].priority)
 	{
 	  swap(H->heapArray,bigger,index);
@@ -105,7 +103,8 @@ void heap_push(Heap *pq, void *data, int priority) {
 void heap_pop(Heap *pq) {
   if (pq->size == 0)
     return;
-  swap(pq->heapArray, 0, pq->size - 1);
+  swap(pq->heapArray, 0, pq->size - 1
+	  pq->heapArray[pq->size-1].priority = -1; //para que no se considere
 	pq->size--;
   heapify_d(pq, 0);
   
