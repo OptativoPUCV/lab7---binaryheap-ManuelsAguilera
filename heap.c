@@ -103,7 +103,7 @@ void heap_push(Heap *pq, void *data, int priority) {
 void heap_pop(Heap *pq) {
   if (pq->size == 0)
     return;
-  swap(pq->heapArray, 0, pq->size - 1
+  swap(pq->heapArray, 0, pq->size - 1);
 	  pq->heapArray[pq->size-1].priority = -1; //para que no se considere
 	pq->size--;
   heapify_d(pq, 0);
