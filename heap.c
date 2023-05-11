@@ -34,13 +34,13 @@ void swap(heapElem *arr, int a, int b) // recibe la posicion de ambos
 void heapify_d(Heap *H,
                int index) // compara con hijos hasta // que el heap sea valido
 {
-  int left, right;
+  /*int left, right;
   left = (2 * index) + 1;
   right = (2 * index) + 2;
   vieww_array(H);
 
   while (1) {
-    if (left < H->size && right < H->size)
+    if (left > H->size && right > H->size)
       return;
 
     if (H->heapArray[left].priority > H->heapArray[index].priority) {
@@ -53,7 +53,7 @@ void heapify_d(Heap *H,
       continue;
     } else
       return;
-  }
+  }*/
 }
 
 void heapify_u(Heap *H, int index) //  compara con el padre hasta
