@@ -38,7 +38,7 @@ void heapify_d(Heap *H,
   left = (2 * index) + 1;
   right = (2 * index) + 2;
 
-	if (left > H->size || right > H->size)
+	if (left > H->size || right > H->size) return;
 
   if (H->heapArray[index].priority > H->heapArray[left].priority)
   {
