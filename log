@@ -795,3 +795,17 @@ heap.c:88:18: error: unused variable ‘new’ [-Werror=unused-variable]
 cc1: all warnings being treated as errors
 Compilation failed
 9386c2a
+Thu 11 May 2023 06:26:36 PM UTC: 
+ heap.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+In file included from test.c:4:
+heap.c: In function ‘heap_push’:
+heap.c:89:18: error: unused variable ‘new’ [-Werror=unused-variable]
+   89 |         heapElem new;
+      |                  ^~~
+heap.c:85:25: error: ignoring return value of ‘realloc’ declared with attribute ‘warn_unused_result’ [-Werror=unused-result]
+   85 |                         realloc(array,sizeof(heapElem)*pq->capac);
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+a0ca23b
