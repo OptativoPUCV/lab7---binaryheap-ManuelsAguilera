@@ -78,7 +78,7 @@ void heap_push(Heap *pq, void *data, int priority) {
 	  pq->capac *= 2;
     pq->capac++;
 	  heapElem* aux = malloc (sizeof(heapElem) * pq->capac);
-	  *aux = *array;
+	  memcpy(aux, array, sizeof(heapElem) * pq->size);
 	  free(array);
     array = aux;
     
