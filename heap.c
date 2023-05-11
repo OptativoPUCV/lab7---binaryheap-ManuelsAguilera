@@ -79,10 +79,11 @@ void heap_push(Heap *pq, void *data, int priority) {
     pq->capac *= 2;
     pq->capac++;
   }
-	printf("priority is: %d \n",priority);
+	
   heapElem new;
   new.data = data;
   new.priority = priority;
+	printf("priority is: %d \n",new.priority);
   array[pq->size - 1] = new;
   heapify_u(pq, pq->size - 1);
 }
