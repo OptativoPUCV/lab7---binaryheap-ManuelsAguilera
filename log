@@ -775,3 +775,23 @@ Thu 11 May 2023 06:11:43 PM UTC:
  tests:  7|1
 total_score: 60/70
 9afdbad
+Thu 11 May 2023 06:23:33 PM UTC: 
+ heap.c | 14 ++++----------
+ 1 file changed, 4 insertions(+), 10 deletions(-)
+In file included from test.c:4:
+heap.c: In function ‘heap_push’:
+heap.c:84:19: error: ‘Heap’ {aka ‘struct Heap’} has no member named ‘arra’
+   84 |                 pq->arra
+      |                   ^~
+heap.c:84:25: error: expected ‘;’ before ‘vieww_array’
+   84 |                 pq->arra
+      |                         ^
+      |                         ;
+   85 |                 vieww_array(pq);
+      |                 ~~~~~~~~~~~
+heap.c:88:18: error: unused variable ‘new’ [-Werror=unused-variable]
+   88 |         heapElem new;
+      |                  ^~~
+cc1: all warnings being treated as errors
+Compilation failed
+9386c2a

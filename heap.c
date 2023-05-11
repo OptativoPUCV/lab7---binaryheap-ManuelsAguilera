@@ -76,28 +76,22 @@ void *heap_top(Heap *pq) {
 }
 
 void heap_push(Heap *pq, void *data, int priority) {
-  heapElem *array = pq->heapArray;
-  pq->size++;
-  if (pq->size == pq->capac) {
+	heapElem *array = pq->heapArray;
+	pq->size++;
 
-	  pq->capac *= 2;
-    pq->capac++;
-	  heapElem* aux = malloc (sizeof(heapElem) * pq->capac);
-	  memcpy(aux, array, sizeof(heapElem) * pq->size);
-	  free(array);
-    array = aux;
-    
-	  vieww_array(pq);
-  }
+	if (pq->size == pq->capac) {
+		
+		pq->arra
+		vieww_array(pq);
+  	}
 	
-  heapElem new;
-  new.data = data;
-  new.priority = priority;
+	heapElem new;
 	
-  array[pq->size - 1] = new;
-
 	
-  heapify_u(pq, pq->size - 1);
+	array[pq->size - 1].data = data;
+	array[pq->size - 1].priority = priority;
+	
+	heapify_u(pq, pq->size - 1);
 }
 
 void heap_pop(Heap *pq) {
