@@ -42,7 +42,7 @@ void heapify_d(Heap *H,
 	
 	
 
-  if (H->heapArray[index].priority < H->heapArray[bigger].priority)
+  if (H->heapArray[index].priority < H->heapArray[bigger].priority-1)
   {
 	  swap(H->heapArray,bigger,index);
 	  heapify_d(H,bigger);	
