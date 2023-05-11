@@ -80,7 +80,10 @@ void heap_push(Heap *pq, void *data, int priority) {
 
 	  pq->capac *= 2;
     pq->capac++;
-    array = (heapElem *)realloc(array, sizeof(heapElem)* pq->capac);
+	  heapElem* aux = malloc (sizeof(heapElem) * pq->capac);
+	  *aux = *array;
+	  free(array);
+    array = aux;
     
 	  vieww_array(pq);
   }
