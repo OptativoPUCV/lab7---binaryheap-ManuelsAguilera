@@ -86,7 +86,7 @@ void heap_push(Heap *pq, void *data, int priority) {
 	
   array[pq->size - 1] = new;
 
-	vieww_array(array);
+	vieww_array(pq);
   heapify_u(pq, pq->size - 1);
 }
 
