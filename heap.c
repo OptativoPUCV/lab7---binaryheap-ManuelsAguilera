@@ -74,18 +74,17 @@ void *heap_top(Heap *pq) {
 }
 
 void heap_push(Heap *pq, void *data, int priority) {
-	heapElem *array = pq->heapArray;
 	
-	if (pq->size+1 == pq->capac) {
+	if (pq->size == pq->capac) {
 		
 		pq->capac = pq->capac * 2 + 1;
-		array = realloc(pq->heapArray, sizeof(heapElem) * pq->capac);
-		if (array == NULL) exit(EXIT_FAILURE);
+		pq->heapArray = realloc(pq->heapArray, sizeof(heapElem) * pq->capac);
+		if (pq->heapArray == NULL) exit(EXIT_FAILURE);
 		vieww_array(pq);
   	}
 	pq->size++;
-	array[pq->size - 1].data = data;
-	array[pq->size - 1].priority = priority;
+	pq->heapArray[pq->size - 1].data = data;
+	pq->heapArray[pq->size - 1].priority = priority;
 	heapify_u(pq, pq->size - 1);
 	
 }
