@@ -85,10 +85,9 @@ void heap_push(Heap *pq, void *data, int priority) {
 		if (array == NULL) exit(EXIT_FAILURE);
 		vieww_array(pq);
   	}
+	pq->size++;
 	array[pq->size - 1].data = data;
 	array[pq->size - 1].priority = priority;
-	pq->size++;
-	
 	heapify_u(pq, pq->size - 1);
 	
 }
