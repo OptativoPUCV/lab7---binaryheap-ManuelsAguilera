@@ -878,3 +878,14 @@ heap.c:85:17: error: ignoring return value of ‘realloc’ declared with attrib
 cc1: all warnings being treated as errors
 Compilation failed
 ae786ff
+Fri 12 May 2023 12:31:33 PM UTC: 
+ heap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+In file included from test.c:4:
+heap.c: In function ‘heap_push’:
+heap.c:85:17: error: ignoring return value of ‘realloc’ declared with attribute ‘warn_unused_result’ [-Werror=unused-result]
+   85 |                 realloc(pq->heapArray,sizeof(heapElem)*pq->capac);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+d1fb01e
