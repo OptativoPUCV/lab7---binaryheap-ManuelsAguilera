@@ -889,3 +889,9 @@ heap.c:85:17: error: ignoring return value of ‘realloc’ declared with attrib
 cc1: all warnings being treated as errors
 Compilation failed
 d1fb01e
+Fri 12 May 2023 12:33:52 PM UTC: 
+ heap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+ tests:  6|1
+total_score: 60/70
+44bab6c
