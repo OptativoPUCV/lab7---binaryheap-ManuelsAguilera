@@ -77,8 +77,8 @@ void *heap_top(Heap *pq) {
 
 void heap_push(Heap *pq, void *data, int priority) {
 	heapElem *array = pq->heapArray;
-
-	if (pq->size == pq->capac-1) {
+	pq->size++;
+	if (pq->size == pq->capac) {
 		
 		pq->capac = pq->capac * 2 + 1;
 		array = realloc(pq->heapArray, sizeof(heapElem) * pq->capac);
