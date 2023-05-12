@@ -37,9 +37,7 @@ void heapify_d(Heap *H,
 	int left, right,bigger;
 	left = (2 * index) + 1;
 	right = (2 * index) + 2;
-	//comprobar que no este comparando fuera del heap
-	//si es asi, entonces cambiar a -1 para que nunca se considere
-	//right = (right == H->size)?index:right;
+	
 	if (left > H->size-1) return;
 
 	//comprobar el mayor para comprararlo al current
@@ -78,7 +76,7 @@ void *heap_top(Heap *pq) {
 void heap_push(Heap *pq, void *data, int priority) {
 	heapElem *array = pq->heapArray;
 	
-	if (pq->size == pq->capac) {
+	if (pq->size+1 == pq->capac) {
 		
 		pq->capac = pq->capac * 2 + 1;
 		array = realloc(pq->heapArray, sizeof(heapElem) * pq->capac);
