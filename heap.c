@@ -80,7 +80,6 @@ void heap_push(Heap *pq, void *data, int priority) {
 		
 		pq->capac = pq->capac * 2 + 1;
 		array = realloc(pq->heapArray, sizeof(heapElem) * pq->capac);
-		if (!array) exit(EXIT_FAILURE);
 		if (array == NULL) exit(EXIT_FAILURE);
 		vieww_array(pq);
   	}
