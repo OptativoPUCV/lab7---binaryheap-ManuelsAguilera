@@ -1015,3 +1015,15 @@ Fri 12 May 2023 12:48:41 PM UTC:
  tests:  7|1
 total_score: 60/70
 b9fde5e
+Fri 12 May 2023 12:48:51 PM UTC: 
+ heap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+In file included from test.c:4:
+heap.c: In function ‘heap_push’:
+heap.c:83:30: error: invalid operands to binary == (have ‘heapElem’ {aka ‘struct nodo’} and ‘void *’)
+   83 |                 if (array[1] == NULL) exit(EXIT_FAILURE);
+      |                     ~~~~~~~~ ^~
+      |                          |
+      |                          heapElem {aka struct nodo}
+Compilation failed
+99b6db0
